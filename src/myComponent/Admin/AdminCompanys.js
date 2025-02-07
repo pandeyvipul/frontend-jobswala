@@ -6,7 +6,7 @@ const AdminCompanys = () => {
 
   const fetchCompanys = async () => {
     try {
-      const response = await fetch('http://localhost:4000/company/showdetails', {
+      const response = await fetch('https://backend-jobswala.onrender.com/company/showdetails', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ const AdminCompanys = () => {
   const Approve = async(student) => {
     
       try {
-        const response = await fetch("http://localhost:4000/Company/verify", {
+        const response = await fetch("https://backend-jobswala.onrender.com/Company/verify", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const AdminCompanys = () => {
             <p className="student-address">Address: {student.address}</p>
             <p className="student-description">{student.description}</p>
             <a
-              href={`http://localhost:4000/resume/${student.docs}`}
+              href={`https://backend-jobswala.onrender.com/resume/${student.docs}`}
               target="_blank"
               rel="noopener noreferrer"
               className="download-link"

@@ -22,7 +22,7 @@ export const Companylogin = () => {
     e.preventDefault();
     console.log("Login Data:", formData);
     try {
-      const response = await fetch("http://localhost:4000/company/login", {
+      const response = await fetch("https://backend-jobswala.onrender.com/company/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

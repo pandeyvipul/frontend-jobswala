@@ -19,7 +19,7 @@ const Companypayments = () => {
       let temp1 = localStorage.getItem("authToken");
       console.log(`Auth Token: ${temp1}`);
       const response = await fetch(
-        "http://localhost:4000/slotpayment/searchcompany",
+        "https://backend-jobswala.onrender.com/slotpayment/searchcompany",
         {
           method: "POST",
           headers: {

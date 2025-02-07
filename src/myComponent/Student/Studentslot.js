@@ -21,7 +21,7 @@ const Studentslot = () => {
 
     const studentCheck = async (slotId) => {
         try {
-            const response = await fetch("http://localhost:4000/slot/checkstudent", {
+            const response = await fetch("https://backend-jobswala.onrender.com/slot/checkstudent", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const Studentslot = () => {
 
     const makeChange = async (slotId) => {
         try {
-            const response = await fetch("http://localhost:4000/slot/booking", {
+            const response = await fetch("https://backend-jobswala.onrender.com/slot/booking", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -75,7 +75,7 @@ const Studentslot = () => {
 
     const fetchFunction = async () => {
         try {
-            const response = await fetch("http://localhost:4000/slot/bookpage", {
+            const response = await fetch("https://backend-jobswala.onrender.com/slot/bookpage", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

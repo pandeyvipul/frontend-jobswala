@@ -6,7 +6,7 @@ const CompanyPopup = ({ slotid, onClose }) => {
 
     const fetchCompanyInfo = async () => {
         try {
-            const response = await fetch("http://localhost:4000/company/findcompany", {
+            const response = await fetch("https://backend-jobswala.onrender.com/company/findcompany", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

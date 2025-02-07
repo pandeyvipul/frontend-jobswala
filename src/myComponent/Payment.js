@@ -4,7 +4,7 @@ import "./Payment.css"
 const Payment = () => {
   const makepayment = async () => {
     const stripe = await loadStripe("pk_test_51QSto4Gl0axXamlKfYssZ6abZyMsBjCiJdxUpVCFVhdqmHhGgA8ECT18MqlYQySazyjQoN4Ogbo2dDYYRiAx28M700xPDO8vrL");
-    const res = await fetch("http://localhost:4000/payment/companys", {
+    const res = await fetch("https://backend-jobswala.onrender.com/payment/companys", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +20,7 @@ const Payment = () => {
 
   const makestudents = async () => {
     const stripe = await loadStripe("pk_test_51QSto4Gl0axXamlKfYssZ6abZyMsBjCiJdxUpVCFVhdqmHhGgA8ECT18MqlYQySazyjQoN4Ogbo2dDYYRiAx28M700xPDO8vrL");
-    const res = await fetch("http://localhost:4000/payment/students", {
+    const res = await fetch("https://backend-jobswala.onrender.com/payment/students", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

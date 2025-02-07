@@ -13,7 +13,7 @@ const Companyslotdetails = () => {
 
   const slotDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/slot/delete`, {
+      const response = await fetch(`https://backend-jobswala.onrender.com/slot/delete`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: id }),
@@ -32,7 +32,7 @@ const Companyslotdetails = () => {
   const fetchFunction = async () => {
     try {
       let temp = localStorage.getItem("authToken");
-      const response = await fetch("http://localhost:4000/slot/slotdetails", {
+      const response = await fetch("https://backend-jobswala.onrender.com/slot/slotdetails", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token: temp ,page:page.current}),

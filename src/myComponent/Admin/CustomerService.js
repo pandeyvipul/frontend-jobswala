@@ -6,7 +6,7 @@ const CustomerService = () => {
   const [input, setInput] = useState('');
 
   const fetchComplains = async () => {
-    const response = await fetch('http://localhost:4000/complain/getcomplain', {
+    const response = await fetch('https://backend-jobswala.onrender.com/complain/getcomplain', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ const CustomerService = () => {
   const handleDone = async (complainId , input) => {
     console.log(complainId, input);
 
-    const response = await fetch("http://localhost:4000/complain/updatestatus", {
+    const response = await fetch("https://backend-jobswala.onrender.com/complain/updatestatus", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

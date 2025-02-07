@@ -103,7 +103,7 @@ const Studentinfo = () => {
     <h3>Resume</h3>
     <div className="resume-options">
       <a
-        href={`http://localhost:4000/resume/${student.resume}`}
+        href={`https://backend-jobswala.onrender.com/resume/${student.resume}`}
       >
         <button className="resume-btn">
         Download Resume

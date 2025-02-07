@@ -132,7 +132,7 @@ export const StudentForm = () => {
         }
   
         try {
-          const response = await fetch("http://localhost:4000/student/create", {
+          const response = await fetch("https://backend-jobswala.onrender.com/student/create", {
             method: "POST",
             body: yedata,
           });

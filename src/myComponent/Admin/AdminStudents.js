@@ -6,7 +6,7 @@ const AdminStudents = () => {
 
   const fetchStudents = async () => {
     try {
-      const response = await fetch('http://localhost:4000/student/showdetails', {
+      const response = await fetch('https://backend-jobswala.onrender.com/student/showdetails', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ const AdminStudents = () => {
   const Approve = async(student) => {
     
       try {
-        const response = await fetch("http://localhost:4000/student/verify", {
+        const response = await fetch("https://backend-jobswala.onrender.com/student/verify", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const AdminStudents = () => {
             <p className="student-dob">DOB: {student.dob}</p>
             <p className="student-description">{student.description}</p>
             <a
-              href={`http://localhost:4000/resume/${student.resume}`}
+              href={`https://backend-jobswala.onrender.com/resume/${student.resume}`}
               target="_blank"
               rel="noopener noreferrer"
               className="download-link"

@@ -26,7 +26,7 @@ const Deactivation = () => {
   };
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:4000/deactivation/show", {
+      const response = await fetch("https://backend-jobswala.onrender.com/deactivation/show", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const Deactivation = () => {
   const Deactivation = async (item) => {
 
     try {
-      const response = await fetch("http://localhost:4000/deactivation/delete", {
+      const response = await fetch("https://backend-jobswala.onrender.com/deactivation/delete", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

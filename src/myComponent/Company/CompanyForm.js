@@ -85,7 +85,7 @@ export const CompanyForm = () => {
       }
       console.log("Data:", uploadData);
       try {
-        const response = await fetch("http://localhost:4000/company/create", {
+        const response = await fetch("https://backend-jobswala.onrender.com/company/create", {
           method: "POST",
           body: uploadData,
         });

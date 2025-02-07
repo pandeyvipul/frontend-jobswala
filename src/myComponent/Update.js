@@ -40,7 +40,7 @@ const Update = () => {
       const formData = new FormData();
       formData.append("docs", file);
       formData.append("id", input);
-      const response = await fetch(`http://localhost:4000/${type}/update/file`, {
+      const response = await fetch(`https://backend-jobswala.onrender.com/${type}/update/file`, {
         method: "POST",
         body: formData,
       });
@@ -60,7 +60,7 @@ const Update = () => {
         setalert(true);
         return;
       }
-      const response = await fetch(`http://localhost:4000/${type}/update/others`, {
+      const response = await fetch(`https://backend-jobswala.onrender.com/${type}/update/others`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -85,7 +85,7 @@ const Update = () => {
       setalert(true);
       return;
     }
-    const response = await fetch(`http://localhost:4000/${type}/show`, {
+    const response = await fetch(`https://backend-jobswala.onrender.com/${type}/show`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -130,8 +130,8 @@ const Update = () => {
             <h1 className="data-title">{data.name}</h1>
             <p className="data-info">{data.phone}</p>
             <p className="data-info">{data.email}</p>
-            {type === "company" &&<a href={`http://localhost:4000/resume/${data.docs}`} className="download-link">Download Documents</a>}
-            {type === "student" &&<a href={`http://localhost:4000/resume/${data.resume}`} className="download-link">Download Documents</a>}
+            {type === "company" &&<a href={`https://backend-jobswala.onrender.com/resume/${data.docs}`} className="download-link">Download Documents</a>}
+            {type === "student" &&<a href={`https://backend-jobswala.onrender.com/resume/${data.resume}`} className="download-link">Download Documents</a>}
           </div>
             <div className="update-form">
               <select className="dropdown" value={updatetype} onChange={(e) => setUpdatetype(e.target.value)}>

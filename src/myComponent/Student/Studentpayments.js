@@ -8,7 +8,7 @@ const Studentpayments = () => {
     try {
       let temp1 = localStorage.getItem("authToken");
       console.log(temp1);
-      const response = await fetch('http://localhost:4000/slotpayment/searchstudent', {
+      const response = await fetch('https://backend-jobswala.onrender.com/slotpayment/searchstudent', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

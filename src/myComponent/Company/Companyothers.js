@@ -33,7 +33,7 @@ const Companyothers = () => {
       token: localStorage.getItem('authToken')
     }
     console.log('Form Submitted:', formData);
-    const response = await fetch('http://localhost:4000/company/updatecompany', {
+    const response = await fetch('https://backend-jobswala.onrender.com/company/updatecompany', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const Companyothers = () => {
   };
 
   const handleData = async() => {
-    const response = await fetch('http://localhost:4000/company/finddetails', {
+    const response = await fetch('https://backend-jobswala.onrender.com/company/finddetails', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

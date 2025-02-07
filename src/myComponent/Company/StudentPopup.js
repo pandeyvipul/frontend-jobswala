@@ -7,7 +7,7 @@ const StudentPopup = ({ slotid, onClose }) => {
     const fetchStudent = async () => {
         try {
 
-    const response = await fetch("http://localhost:4000/student/findstudent", {
+    const response = await fetch("https://backend-jobswala.onrender.com/student/findstudent", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -77,7 +77,7 @@ const StudentPopup = ({ slotid, onClose }) => {
                 <div className="student-projects">
                     <h3>{student.description}</h3>
                 </div>
-                <a href={`http://localhost:4000/resume/${student.resume}`}>Download CV</a>
+                <a href={`https://backend-jobswala.onrender.com/resume/${student.resume}`}>Download CV</a>
             </div>
         </div>
     );

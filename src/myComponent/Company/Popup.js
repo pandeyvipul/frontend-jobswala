@@ -11,7 +11,7 @@ const Popup = ({ slotid, onClose }) => {
 
     const handleTransaction = async () => {
         try {
-            const response = await fetch("http://localhost:4000/slotpayment/transanction", {
+            const response = await fetch("https://backend-jobswala.onrender.com/slotpayment/transanction", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

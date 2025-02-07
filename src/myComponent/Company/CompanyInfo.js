@@ -8,7 +8,7 @@ const CompanyInfo = () => {
   const [alertMessage, setAlertMessage] = useState("");
 
   const fetchCompanyInfo = async () => {
-    const response = await fetch("http://localhost:4000/company/profile", {
+    const response = await fetch("https://backend-jobswala.onrender.com/company/profile", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +25,7 @@ const CompanyInfo = () => {
   }, []);
 
   const Deletion = (company) => async () => {
-    const response = await fetch("http://localhost:4000/deactivation/deletecompany", {
+    const response = await fetch("https://backend-jobswala.onrender.com/deactivation/deletecompany", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

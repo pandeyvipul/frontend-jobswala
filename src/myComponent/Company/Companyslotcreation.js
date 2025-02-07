@@ -42,7 +42,7 @@ const Companyslotcreation = () => {
 
     try {
       console.log("Submitted Data:", formattedData);
-      const response = await fetch("http://localhost:4000/slot/create", {
+      const response = await fetch("https://backend-jobswala.onrender.com/slot/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
