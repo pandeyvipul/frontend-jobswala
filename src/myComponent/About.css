@@ -1,0 +1,127 @@
+/* About Us Section */
+.about-us {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding: 5vh 4vw; /* Padding in vh and vw */
+    background-color: #f9f9f9;
+}
+
+.about-us h2 {
+    font-size: 2.5vw; /* Font size in vw */
+    color: #444;
+    margin-bottom: 2vh; /* Margin in vh */
+}
+
+.about-us p {
+    font-size: 1.5vw; /* Font size in vw */
+    line-height: 1.6;
+    margin-bottom: 2vh; /* Margin in vh */
+}
+
+.about-us ul {
+    list-style-type: disc;
+    margin-left: 2vw; /* Margin in vw */
+    font-size: 1.5vw; /* Font size in vw */
+    line-height: 1.6;
+}
+
+.about-us ul li {
+    margin-bottom: 1.5vh; /* Margin in vh */
+}
+
+/* Focus Section */
+.focus-section {
+    background-color: #fff;
+    padding: 2vh 3vw; /* Padding in vh and vw */
+    border-radius: 1vh;
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1);
+    margin-bottom: 4vh;
+}
+
+/* Community Problems Section */
+.community-problems-section {
+    background-color: #fff;
+    padding: 2vh 3vw; /* Padding in vh and vw */
+    border-radius: 1vh;
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1);
+    margin-bottom: 4vh;
+}
+
+/* Review Section */
+.review-section {
+    background-color: #fff;
+    padding: 2vh 3vw; /* Padding in vh and vw */
+    border-radius: 1vh;
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1);
+    margin-bottom: 4vh;
+}
+
+/* Conclusion Section */
+.conclusion-section {
+    background-color: #fff;
+    padding: 2vh 3vw; /* Padding in vh and vw */
+    border-radius: 1vh;
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1);
+}
+
+.doc-link {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 1vh 3vw; /* Padding in vh and vw */
+    font-size: 1.5vw; /* Font size in vw */
+    border-radius: 0.5vh;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.doc-link:hover {
+    background-color: #0056b3;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .about-us {
+        padding: 6vh 5vw;
+    }
+
+    .about-us h2 {
+        font-size: 5vw;
+    }
+
+    .about-us p {
+        font-size: 3vw;
+    }
+
+    .about-us ul {
+        font-size: 3vw;
+    }
+
+    .focus-section, .community-problems-section, .review-section, .conclusion-section {
+        padding: 3vh 4vw;
+    }
+
+    .doc-link {
+        padding: 1.5vh 4vw;
+        font-size: 3vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us h2 {
+        font-size: 6vw;
+    }
+
+    .about-us p {
+        font-size: 4vw;
+    }
+
+    .about-us ul {
+        font-size: 4vw;
+    }
+
+    .doc-link {
+        padding: 2vh 4vw;
+        font-size: 4vw;
+    }
+}

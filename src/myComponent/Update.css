@@ -1,0 +1,108 @@
+/* General Styles */
+.update-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Search Section */
+  .search-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .input-field,
+  .dropdown,
+  .file-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #333;
+    color: white;
+  }
+  
+  .search-button,
+  .update-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .search-button:hover,
+  .update-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Data Section */
+  .data-section {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .data-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .data-info {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .download-link {
+    display: block;
+    margin-top: 10px;
+    color: #ffa500;
+    text-decoration: none;
+  }
+  
+  .download-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Update Form */
+  .update-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Responsive Design */
+  @media (min-width: 768px) {
+    .update-container {
+      max-width: 600px;
+    }
+  
+    .search-section,
+    .update-section {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    .update-form {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .search-button,
+    .update-button {
+      width: auto;
+    }
+  }
+  

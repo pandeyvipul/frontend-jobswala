@@ -1,0 +1,75 @@
+/* Companypayments.css */
+.payment-container {
+    margin: 20px;
+    color: #333;
+    font-family: Arial, sans-serif;
+  }
+  
+  .payment-card {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333;
+  }
+  
+  .payment-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .payment-card p {
+    margin: 8px 0;
+    line-height: 1.5;
+  }
+  
+  .payment-card ul {
+    padding-left: 20px;
+    margin: 10px 0;
+  }
+  
+  .payment-card li {
+    margin: 5px 0;
+  }
+  
+  .payment-card .status-paid {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .payment-card .status-unpaid {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .payment-card button {
+    background: linear-gradient(45deg, #2196F3, #21CBF3);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .payment-card button:hover {
+    background: linear-gradient(45deg, #1976D2, #1E88E5);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .payment-card {
+      padding: 10px;
+    }
+  
+    .payment-card h3 {
+      font-size: 18px;
+    }
+  
+    .payment-card button {
+      padding: 6px 12px;
+    }
+  }
+  

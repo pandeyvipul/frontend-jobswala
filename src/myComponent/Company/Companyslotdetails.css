@@ -1,0 +1,216 @@
+/* Companyslotdetails.css */
+
+.slot-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.slot-container h1 {
+  text-align: center;
+  color: #444;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.slot-container h1::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.slot-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.slot-table tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.slot-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.slot-label {
+  font-weight: bold;
+  color: #555;
+  padding: 10px 15px;
+  background: #f9f9f9;
+  border-radius: 5px;
+}
+
+.slot-value {
+  padding: 10px 15px;
+  color: #333;
+}
+
+.slot-value div {
+  padding: 5px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.student-button {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  background-color: #ffffff;
+  border-radius: 5px;
+  font-size: 2.2vh;
+  cursor: default;
+  border: none;
+  box-shadow: none;
+  transition: none;
+}
+
+.delete-button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #d7353a;
+}
+
+button:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .slot-container {
+    padding: 15px;
+    margin: 20px 10px;
+  }
+
+  .slot-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .slot-table tbody tr td {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+  }
+
+  .slot-label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+
+  .slot-value {
+    font-size: 0.85rem;
+  }
+
+  .student-button,
+  .delete-button {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    width: 100%; /* Full width on mobile */
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .slot-container {
+    padding: 10px;
+  }
+
+  .slot-container h1 {
+    font-size: 1.3rem;
+  }
+
+  .slot-table tbody tr td {
+    padding: 8px;
+  }
+
+  .slot-label,
+  .slot-value {
+    font-size: 0.8rem;
+  }
+
+  .student-button,
+  .delete-button {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}
+
+/* Center the button within its container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto; /* Full height for vertical centering */
+  padding: 10px; /* Add some padding for mobile responsiveness */
+}
+
+/* Circular button styling */
+.showmore-button {
+  
+  width: 50px; /* Default width for larger screens */
+  height: 50px;
+  border: none;
+  border-radius: 50%; /* Makes it a perfect circle */
+  background: red; /* Gradient background */
+  color: white;
+  font-size: 1.5rem; /* Font size for the "+" */
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover effect */
+.showmore-button:hover {
+  transform: scale(1.1); /* Slightly enlarge the button */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Focus effect */
+.showmore-button:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 10px rgba(255, 154, 158, 0.8); /* Glow effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .button-container {
+    height: auto; /* Adjust height for smaller screens */
+    padding: 20px;
+  }
+
+  .showmore-button {
+    width: 50px; /* Smaller button for tablets */
+    height: 50px;
+    font-size: 1.2rem; /* Adjust font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .button-container {
+    height: auto; /* Remove fixed height on very small screens */
+    padding: 15px;
+  }
+
+  .showmore-button {
+    width: 40px; /* Smaller button for mobile */
+    height: 40px;
+    font-size: 1rem; /* Smaller font size */
+  }
+}

@@ -1,0 +1,93 @@
+/* CompanyInfo.css */
+  
+  .company-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  .card {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .company-header {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .company-header::after {
+    content: "";
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    display: block;
+    margin: 10px auto;
+    border-radius: 2px;
+  }
+  
+  .company-details {
+    margin-top: 20px;
+  }
+  
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: #f9f9f9;
+    margin: 10px 0;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .info-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .value {
+    color: #222;
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      padding: 20px;
+    }
+  
+    .company-header {
+      font-size: 1.8rem;
+    }
+  
+    .info-item {
+      padding: 10px 15px;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

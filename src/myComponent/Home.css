@@ -1,0 +1,291 @@
+/* General Styles */
+.home {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+  }
+  
+  .hero-content {
+    max-width: 50%;
+  }
+  
+  .hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .hero-buttons .btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .primary-btn {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+  
+  .secondary-btn {
+    background-color: #f1f1f1;
+    color: #000;
+  }
+  
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Summary Section */
+  .summary-section {
+    padding: 50px 20px;
+    background-color: #222;
+  }
+  
+  .summary-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .summary-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* Features Section */
+  .features-section {
+    padding: 50px 20px;
+  }
+  
+  .features-section h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .features-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: #333;
+    padding: 20px;
+    width: 30%;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .card img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+  }
+  
+  /* About Section */
+  .about-section {
+    padding: 50px 20px;
+    background-color: #111;
+  }
+  
+  .about-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-section p {
+    font-size: 1.2rem;
+  }
+  
+  
+  /* Footer Section */
+  .footer-section {
+    padding: 20px;
+    background-color: #111;
+    text-align: center;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .hero-content {
+      max-width: 100%;
+    }
+  
+    .hero-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .features-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card {
+      width: 80%;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Featured Companies Section */
+.featured-companies-section {
+    background-color: #f9f9f9;
+    padding: 40px 0;
+  }
+  
+  .featured-companies-section .container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .featured-companies-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .companies-grid {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 0; /* Remove the gap between cards */
+  }
+  
+  .company-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px; /* Adds space between each card */
+    transition: transform 0.3s ease;
+    width: 200px; /* Fixed width for consistent layout */
+  }
+  
+  .company-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .company-card img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  .company-card p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .companies-grid {
+      justify-content: space-between; /* Makes cards align properly on small screens */
+    }
+  
+    .company-card {
+      padding: 15px;
+      width: 150px; /* Adjusts the card width for smaller screens */
+    }
+  
+    .company-card img {
+      width: 120px;
+    }
+  }
+  
+  /* Media Query for Tablet and Mobile Screens */
+@media screen and (max-width: 1024px) {
+    .companies-grid {
+      justify-content: space-between; /* Makes cards align properly on small tablets */
+    }
+  
+    .company-card {
+      width: 180px; /* Slightly adjust card width for tablets */
+      padding: 18px;
+    }
+  
+    .company-card img {
+      width: 130px; /* Adjust image size */
+    }
+  }
+  
+  /* Media Query for Mobile Screens */
+  @media screen and (max-width: 768px) {
+    .companies-grid {
+      justify-content: space-between;
+    }
+  
+    .company-card {
+      padding: 15px;
+      width: 150px; /* Adjusts the card width for smaller screens */
+    }
+  
+    .company-card img {
+      width: 120px;
+    }
+  
+    .company-card p {
+      font-size: 0.9rem; /* Slightly reduce text size */
+    }
+  }
+  
+  /* Media Query for Extra Small Screens (Mobile Phones) */
+  @media screen and (max-width: 480px) {
+    .companies-grid {
+      flex-direction: column; /* Stack cards vertically on small screens */
+      align-items: center;
+    }
+  
+    .company-card {
+      width: 90%; /* Make cards take up more space on small screens */
+      margin: 10px 0;
+    }
+  
+    .company-card img {
+      width: 100px; /* Reduce image size for very small screens */
+    }
+  
+    .company-card p {
+      font-size: 0.85rem; /* Further reduce text size */
+    }
+  }

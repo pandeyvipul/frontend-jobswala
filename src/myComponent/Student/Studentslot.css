@@ -1,0 +1,161 @@
+/* Container for all slots */
+.slots-container {
+    display: flex;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align all slots */
+    gap: 2rem; /* Add spacing between slot cards */
+    padding: 2rem; /* Add padding around the slots container */
+    background-color: #111; /* Dark background for contrast */
+  }
+  
+  /* Individual slot card */
+  .slot-card {
+    background-color: #ffffff; /* Slightly lighter dark for cards */
+    color: rgb(0, 0, 0); /* Text color */
+    border: 1px solid #333; /* Subtle border for the cards */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+    padding: 1rem; /* Add inner spacing */
+    width: 300px; /* Fixed width for the cards */
+    display: flex;
+    flex-direction: column; /* Stack card content vertically */
+    gap: 1rem; /* Add spacing between card elements */
+    text-align: center; /* Center text */
+  }
+  
+  /* Slot details */
+  .slot-card div {
+    font-size: 1rem; /* Default font size for text */
+    line-height: 1.5; /* Add some line spacing */
+    word-wrap: break-word; /* Prevent overflow issues with long text */
+  }
+  
+  /* Button styling */
+  .slot-card button {
+    background-color: #1a9c36; /* Button background color */
+    color: rgb(255, 255, 255); /* Button text color */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners for buttons */
+    padding: 0.5rem 1rem; /* Add padding inside the button */
+    cursor: pointer; /* Show pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+ .slot-card .companyname {
+    background-color: #ffffff; /* Button background color */
+    color: rgb(0, 0, 0); /* Button text color */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners for buttons */
+    padding: 0.5rem 1rem; /* Add padding inside the button */
+    cursor: pointer; /* Show pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  /* Button hover effect */
+  .slot-card button:hover {
+    background-color: #444;
+    color: #ffffff; /* Slightly lighter background on hover */
+  }
+  
+  /* Responsive adjustments for tablets */
+  @media (max-width: 768px) {
+    .slot-card {
+      width: 100%; /* Make cards take full width on smaller screens */
+      max-width: 400px; /* Limit the width for better readability */
+    }
+  }
+  
+  /* Parent Container */
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 0 10px;
+}
+
+/* Buttons */
+.pagination-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Arrow Styles */
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+}
+
+.arrow.left {
+  transform: rotate(225deg);
+  margin-right: 8px;
+}
+
+.arrow.right {
+  transform: rotate(45deg);
+  margin-left: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pagination-container {
+      width: 90%;
+      max-width: 100%;
+      justify-content: space-around;
+  }
+  
+  .pagination-button {
+      width: 45%;
+      font-size: 14px;
+      padding: 10px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination-container {
+      flex-direction: row;
+      gap: 12px;
+  }
+
+  .pagination-button {
+      width: 45%;
+      text-align: center;
+  }
+}
+
+  /* Responsive adjustments for mobile devices */
+  @media (max-width: 480px) {
+    .slots-container {
+      padding: 1rem; /* Reduce padding on mobile */
+      gap: 1rem; /* Reduce gap between cards */
+    }
+  
+    .slot-card {
+      padding: 0.8rem; /* Reduce padding inside the card */
+      font-size: 0.9rem; /* Reduce font size for smaller screens */
+    }
+  
+    .slot-card button {
+      padding: 0.4rem 0.8rem; /* Adjust button size */
+      font-size: 0.9rem; /* Smaller button text */
+    }
+  }
+  

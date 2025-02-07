@@ -1,0 +1,79 @@
+/* Payment Section */
+.payment-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 2rem;
+  }
+  
+  .payment-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .payment-button {
+    background-color: #007bff;
+    color: white;
+    font-size: 8vh;  /* Adjust font size to make it scalable */
+    padding: 2vh;  /* Add padding to make it square */
+    margin: 2vh;  /* Add margin for spacing */
+    border: none;
+    border-radius: 4px;  /* Slight rounded corners for aesthetics */
+    cursor: pointer;
+    width: 150vh;  /* Set width in vh for scalability */
+    height: 150vh;  /* Set height in vh to make it square */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the text inside the square */
+    text-align: center;
+  }
+  
+  .payment-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  .payment-button:active {
+    transform: scale(1);
+  }
+  
+  .payment-button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+    color: #666;
+    transform: none;
+  }
+  
+  
+  /* Responsive styles for mobile devices */
+  @media (max-width: 786px) {
+    .payment-section h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+  
+    .payment-button {
+      width: 80%;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Even smaller mobile devices */
+  @media (max-width: 480px) {
+    .payment-section h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+  
+    .payment-button {
+      width: 100%;
+      font-size: 0.9rem;
+    }
+  }
+  

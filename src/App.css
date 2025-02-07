@@ -1,38 +1,259 @@
+/* Global reset to remove any default padding/margin */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* .icon {
+  display: none;
+} */
+html, body {
+  background-color: #000000;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* General styles for .App */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  flex-direction: column;
+  width: 100vw; /* Full width of the viewport */
+  /* height: 100vh; Full height of the viewport */
+  background-color: #000000; /* Background color */
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+  overflow: hidden; /* Prevent content overflow */
+}
+
+/* Responsive styles for tablets and small laptops */
+@media (max-width: 1024px) {
+  .App {
+    flex-direction: column; /* Ensure stacking on smaller screens */
+    padding: 2vw; /* Add padding for smaller screens */
+  }
+}
+
+@media (max-width: 786px) {
+  .App {
+    /* height: 100vh; */
+    width: 100vw;
+  }
+}
+
+/* Responsive styles for mobile devices (small screens like 480px) */
+@media (max-width: 480px) {
+  .App {
+    flex-direction: column; /* Stack items vertically */
+    padding: 1vw; /* Reduce padding further */
+    background-color: #040404; /* Optional: darker background for very small screens */
+    /* Ensure it covers full height */
+    width: 100vw; /* Ensure it covers full width */
+  }
+}
+
+/* Nav bar styles */
+.nav-bar {
+  height: 4.5rem; /* Set height based on viewport height */
+  width: 100%;
+  background-color: #333;
   color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2vw; /* Use viewport width for horizontal padding */
 }
 
-.App-link {
-  color: #61dafb;
+/* Nav Container */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Logo Container */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo svg {
+  width: 4vw; /* Use viewport width for logo scaling */
+  height: auto;
+}
+
+.logo-name {
+  color: white;
+  font-size: 2.5vh; /* Font size in viewport height */
+  margin-left: 1vw; /* Adjust for spacing */
+}
+
+/* Navigation Menu */
+.nav-bar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2vw; /* Use viewport width for gap */
+}
+
+.nav-bar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 2vh; /* Font size in viewport height */
+  padding: 1vh 2vw;
+  display: block;
+}
+
+/* Main content styles */
+.main-content {
+  height: max-content;
+  padding-top: 4.5rem; /* Ensure content is below the fixed navbar */
+  flex-grow: 1;
+  position: relative; /* Prevent overlap issues */
+  width: 100%;
+  background-color: #000000;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .nav-bar {
+    width: 100%;
+    flex-direction: row; /* Keep items in a horizontal row */
+    align-items: center; /* Center items horizontally */
+    height: 4rem; /* Set a fixed height for mobile */
   }
-  to {
-    transform: rotate(360deg);
+  .nav-container {
+    justify-content: space-between;
+    flex-direction: row; /* Keep the logo and nav items in one row */
+    align-items: center; /* Center everything horizontally */
+    width: 100%;
+  }
+
+
+  .logo-name {
+    font-size: 2vh; /* Make the font size smaller for mobile screens */
+  }
+
+  .nav-bar ul {
+    flex-direction: row; /* Keep navigation links horizontal */
+    width: 29vh; /* Let the menu adjust based on content */
+    margin-top: 0; /* Remove margin */
+    padding-left: 0; /* Remove padding */
+    gap: 0.3vh; /* Reduced gap to bring items closer */
+  }
+
+  .nav-bar ul li a {
+    font-size: 1.5vh; /* Smaller font size for mobile screens */
+    padding: 1vh 2vw; /* Adjust padding for better fit */
+    text-align: center; /* Center text */
+  }
+
+  .icon {
+    display: inline-block;
+    font-size: 18px;
+  }
+
+  .nav-text {
+    display: none; /* Hides the text */
+  }
+
+  .nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav-bar ul li a:hover {
+    padding-left: 2vw; /* Adjust hover effect */
+  }
+
+  .main-content {
+    height: max-content;
+    padding-top: 4rem; /* Adjust top padding for the navbar height */
+  }
+  
+}
+
+/* Additional smaller screen adjustments */
+@media screen and (max-width: 480px) {
+
+.nav-bar {
+  height: 3rem; 
+  width: 100%;/* Even smaller navbar on mobile */
+}
+  .nav-container {
+    justify-content: space-between;
+    flex-direction: row; /* Keep the logo and nav items in one row */
+    align-items: center; /* Center everything horizontally */
+    width: 100%;
+  }
+  .nav-bar ul li a {
+    font-size: 1.5vh; /* Even smaller font size for very small screens */
+    padding: 1vh 2vw; /* Adjust padding for better fit */
+  }
+
+  .logo-name {
+    font-size: 1.5vh; /* Reduce the logo font size further for very small screens */
+  }
+ 
+  .icon {
+    width: 6vw;
+    display: inline-block;
+    font-size: 12px;
+  }
+
+  .nav-text {
+    display: none; /* Hides the text */
+  }
+  
+  .nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* Make the gap even smaller between items on very small screens */
+  .nav-bar ul {
+    width: 29vh;
+    gap: 0.3vw; /* Reduce gap even more for tight spacing */
+  }
+
+  .main-content {
+    padding-top: 3rem; /* Adjust for smaller navbar height */
+  }
+
+  .logo-name {
+    margin-left: 0.2vw; /* Further reduce the gap between logo and nav items */
   }
 }
+
+.logout {
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  background-color: #333;
+  border-radius: 5px;
+  font-size: 2.1vh;
+  cursor: default; /* Prevents the pointer cursor */
+  border: none; /* Removes the border */
+  box-shadow: none; /* No shadow */
+  transition: none; /* No hover or active transition effects */
+}
+
+
+
+
+.logout:hover,
+.logout:focus,
+.logout:active {
+  background-color: #333; /* Keeps background same on hover/focus/active */
+  color: white; /* Keeps text color same on hover/focus/active */
+  box-shadow: none; /* Keeps shadow off on hover/focus/active */
+}
+

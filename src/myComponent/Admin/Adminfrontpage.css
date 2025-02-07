@@ -1,0 +1,66 @@
+/* General container styling */
+.admin-container {
+    display: flex;
+    flex-direction: column; /* Default vertical layout for small screens */
+    align-items: center;
+    justify-content: center;
+    min-height: fit-content; /* Allow dynamic height based on content for small screens */
+    background-color: #0a0909;
+    padding: 20px;
+    gap: 20px; /* Space between the cards */
+  }
+  
+  /* Card styling */
+  .admin-card {
+    flex: 1;
+    width: 100%;
+    max-width: 300px; /* Max width for each card */
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .admin-card h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333333;
+  }
+  
+  /* Hover effect for desktop */
+  .admin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Responsive design for medium screens (481px to 767px) */
+  @media (min-width: 481px) and (max-width: 767px) {
+    .admin-container {
+      flex-direction: row; /* Switch to horizontal layout */
+      flex-wrap: wrap; /* Wrap cards if needed */
+      justify-content: space-between; /* Space cards evenly */
+    }
+  
+    .admin-card {
+      flex: 1 1 calc(45% - 20px); /* Take ~45% width, adjust for gaps */
+      margin: 10px;
+    }
+  }
+  
+  /* Responsive design for larger screens (768px and above) */
+  @media (min-width: 768px) {
+    .admin-container {
+      flex-direction: row; /* Horizontal layout for larger screens */
+      flex-wrap: wrap; /* Wrap cards if there are more */
+      justify-content: space-around; /* Space cards evenly */
+      min-height: 80vh; /* Ensure it spans the full screen */
+    }
+  
+    .admin-card {
+      flex: 1 1 calc(30% - 20px); /* Cards take up ~30% of the container width */
+      margin: 10px;
+    }
+  }
+  

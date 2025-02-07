@@ -1,0 +1,96 @@
+/* General Styles */
+.student-form {
+    width: 90%; /* Full width on smaller screens */
+    max-width: 500px; /* Restrict max width for larger screens */
+    margin: 50px auto; /* Center align */
+    padding: 20px;
+    background: #f9f9f9; /* Light gray background */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  }
+  
+  .student-form h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color */
+  }
+  
+  .student-form label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #555; /* Medium text color */
+  }
+  
+  .student-form input {
+    width: 100%; /* Full width for inputs */
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .student-form input:focus {
+    border-color: #4CAF50; /* Green border on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  }
+  
+  .student-form button {
+    width: 100%; /* Full width for buttons */
+    padding: 12px;
+    margin-top: 15px;
+    background: #4CAF50; /* Green button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .student-form button:hover {
+    background: #45a049; /* Darker green on hover */
+  }
+  
+  .student-form button + button {
+    margin-top: 10px; /* Space between buttons */
+    background: #2196F3; /* Blue button for navigation */
+  }
+  
+  .student-form button + button:hover {
+    background: #1e88e5; /* Darker blue on hover */
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .student-form {
+      margin: 20px auto; /* Reduce margin on smaller screens */
+      padding: 15px; /* Compact padding for small screens */
+    }
+  
+   
+    .student-form h2 {
+      font-size: 20px; /* Slightly smaller heading */
+    }
+  
+    .student-form label {
+      font-size: 14px; /* Adjust font size for labels */
+    }
+  
+    .student-form input {
+      font-size: 13px; /* Adjust input text size */
+    }
+  
+    .student-form button {
+      font-size: 14px; /* Adjust button text size */
+      padding: 10px; /* Reduce padding */
+    }
+  }
+
+
+  
+  

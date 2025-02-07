@@ -1,0 +1,103 @@
+/* General Styles */
+.login-form {
+    width: 90%; /* Full width on smaller screens */
+    max-width: 400px; /* Restrict max width for larger screens */
+    margin: 50px auto; /* Center the form on the page */
+    padding: 25px;
+    background: #ffffff; /* White background */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    font-family: Arial, sans-serif; /* Clean font */
+  }
+  
+  .login-form-title {
+    text-align: center;
+    font-size: 28px;
+    color: #333; /* Dark text */
+    margin-bottom: 20px;
+  }
+  
+  .login-form-label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555; /* Medium gray text */
+  }
+  
+  .login-form-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 15px;
+  }
+  
+  .login-form-input:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .login-form-button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: #007bff; /* Blue button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .login-form-button:hover {
+    background: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Button to navigate to the Register page */
+  .login-form-button + .login-form-button {
+    margin-top: 10px; /* Space between buttons */
+    background: #28a745; /* Green button */
+  }
+  
+  .login-form-button + .login-form-button:hover {
+    background: #218838; /* Darker green on hover */
+  }
+  
+  /* Responsive Design Adjustments */
+  @media (max-width: 768px) {
+    .login-form {
+      margin: 20px auto; /* Reduce margin for smaller screens */
+      padding: 20px; /* Compact padding for small screens */
+    }
+  
+    .login-form-title {
+      font-size: 24px; /* Slightly smaller title font */
+    }
+  
+    .login-form-label {
+      font-size: 14px; /* Adjust font size for labels */
+    }
+  
+    .login-form-input {
+      font-size: 13px; /* Adjust input text size */
+    }
+  
+    .login-form-button {
+      font-size: 14px; /* Adjust button text size */
+      padding: 10px; /* Reduce padding */
+    }
+  }
+  
+  /* Ensuring Form Stays Centered on Larger Screens */
+  @media (min-width: 1024px) {
+    .login-form {
+      margin-top: 100px; /* Extra space from top for larger screens */
+      padding: 30px; /* Increase padding */
+    }
+  }
+  

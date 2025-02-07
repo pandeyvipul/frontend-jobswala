@@ -1,0 +1,64 @@
+.slotForm-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #000000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    color: #ffffff;
+  }
+  
+  .slotForm-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #ffffff;
+  }
+  
+  .slotForm-group {
+    margin-bottom: 15px;
+  }
+  
+  .slotForm-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .slotForm-group input,
+  .slotForm-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .slotForm-group textarea {
+    resize: vertical;
+  }
+  
+  .slotForm-submit {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .slotForm-submit:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .slotForm-container {
+      margin: 10px;
+      padding: 15px;
+    }
+  }
+  
