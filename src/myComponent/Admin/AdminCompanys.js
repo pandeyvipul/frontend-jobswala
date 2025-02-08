@@ -58,7 +58,7 @@ const AdminCompanys = () => {
             <p className="student-address">Address: {student.address}</p>
             <p className="student-description">{student.description}</p>
             <a
-              href={`https://backend-jobswala.onrender.com/resume/${student.docs}`}
+              href={student.docs}
               target="_blank"
               rel="noopener noreferrer"
               className="download-link"

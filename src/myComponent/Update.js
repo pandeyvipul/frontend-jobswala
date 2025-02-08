@@ -130,8 +130,8 @@ const Update = () => {
             <h1 className="data-title">{data.name}</h1>
             <p className="data-info">{data.phone}</p>
             <p className="data-info">{data.email}</p>
-            {type === "company" &&<a href={`https://backend-jobswala.onrender.com/resume/${data.docs}`} className="download-link">Download Documents</a>}
-            {type === "student" &&<a href={`https://backend-jobswala.onrender.com/resume/${data.resume}`} className="download-link">Download Documents</a>}
+            {type === "company" &&<a href={data.docs} className="download-link">Download Documents</a>}
+            {type === "student" &&<a href={data.resume} className="download-link">Download Documents</a>}
           </div>
             <div className="update-form">
               <select className="dropdown" value={updatetype} onChange={(e) => setUpdatetype(e.target.value)}>

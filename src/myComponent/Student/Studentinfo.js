@@ -9,7 +9,7 @@ const Studentinfo = () => {
 
   const fetchStudent = async () => {
     try {
-      const response = await fetch("http://localhost:4000/student/profile",
+      const response = await fetch("https://backend-jobswala.onrender.com/student/profile",
         {
           method: "POST",
           headers: {
@@ -31,7 +31,7 @@ const Studentinfo = () => {
 
   const Deletion = async (student) => {
     try {
-      const response = await fetch("http://localhost:4000/deactivation/deletestudent", {
+      const response = await fetch("https://backend-jobswala.onrender.com/deactivation/deletestudent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -103,7 +103,7 @@ const Studentinfo = () => {
     <h3>Resume</h3>
     <div className="resume-options">
       <a
-        href={`https://backend-jobswala.onrender.com/resume/${student.resume}`}
+        href={student.resume}
       >
         <button className="resume-btn">
         Download Resume

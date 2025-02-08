@@ -77,7 +77,7 @@ const StudentPopup = ({ slotid, onClose }) => {
                 <div className="student-projects">
                     <h3>{student.description}</h3>
                 </div>
-                <a href={`https://backend-jobswala.onrender.com/resume/${student.resume}`}>Download CV</a>
+                <a href={student.resume}>Download CV</a>
             </div>
         </div>
     );

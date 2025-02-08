@@ -59,7 +59,7 @@ const AdminStudents = () => {
             <p className="student-dob">DOB: {student.dob}</p>
             <p className="student-description">{student.description}</p>
             <a
-              href={`https://backend-jobswala.onrender.com/resume/${student.resume}`}
+              href={student.resume}
               target="_blank"
               rel="noopener noreferrer"
               className="download-link"
