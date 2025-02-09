@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Company/Companylogin.css"; // For external CSS file
 import AlertPopup from "../AlertPopup";
-export const Studentlogin = () => {
+
+const Studentlogin = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -89,3 +90,4 @@ return (
 </>);
 };
 
+export default Studentlogin;

@@ -3,8 +3,10 @@ import "./Studentslot.css";
 // import InfiniteScroll from 'react-infinite-scroll-component';
 import AlertPopup from '../AlertPopup';
 import CompanyPopup from './CompanyPopup';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 const Studentslot = () => {
+    const [loading, setLoading] = useState(false);
     const [slots, setSlot] = useState([]);
     const [bookedSlots, setBookedSlots] = useState({});
     const [popup, setPopup] = useState({ isOpen: false, slotId: null });
@@ -20,6 +22,7 @@ const Studentslot = () => {
     }, [page]);
 
     const studentCheck = async (slotId) => {
+        setLoading(true);
         try {
             const response = await fetch("https://backend-jobswala.onrender.com/slot/checkstudent", {
                 method: "POST",
@@ -38,10 +41,13 @@ const Studentslot = () => {
             }));
         } catch (error) {
             console.error("Error checking student:", error);
+        }finally{
+            setLoading(false);
         }
     };
 
     const makeChange = async (slotId) => {
+        setLoading(true);
         try {
             const response = await fetch("https://backend-jobswala.onrender.com/slot/booking", {
                 method: "POST",
@@ -64,6 +70,8 @@ const Studentslot = () => {
             }
         } catch (error) {
             console.error("Error booking slot:", error);
+        }finally{
+            setLoading(false);
         }
     };
 
@@ -74,6 +82,7 @@ const Studentslot = () => {
     };
 
     const fetchFunction = async () => {
+        setLoading(true);
         try {
             const response = await fetch("https://backend-jobswala.onrender.com/slot/bookpage", {
                 method: "POST",
@@ -96,6 +105,8 @@ const Studentslot = () => {
             }
         } catch (error) {
             console.error("Error fetching slots:", error);
+        }finally{
+            setLoading(false);
         }
     };
 
@@ -130,6 +141,7 @@ const Studentslot = () => {
     }
 
     return (
+        <>{loading ? (<div className="loader-container"><PulseLoader color="white" /></div>) : (
         <div>
             {/* <InfiniteScroll
                 dataLength={slots.length}
@@ -188,6 +200,7 @@ const Studentslot = () => {
             {alert && <AlertPopup message={alertMessage} onClose={() => setAlert(false)} />}
 
         </div>
+        )}</>
     );
 };
 

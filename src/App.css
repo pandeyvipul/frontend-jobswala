@@ -6,7 +6,18 @@
 }
 /* .icon {
   display: none;
+
 } */
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full screen height */
+  width: 100vw;  /* Full screen width */
+  background-color: #121212; /* Optional: Dark background */
+}
+
 html, body {
   background-color: #000000;
   width: 100%;
@@ -161,9 +172,7 @@ html, body {
     font-size: 18px;
   }
 
-  .nav-text {
-    display: none; /* Hides the text */
-  }
+ 
 
   .nav-item {
     display: flex;
@@ -209,9 +218,8 @@ html, body {
     font-size: 12px;
   }
 
-  .nav-text {
-    display: none; /* Hides the text */
-  }
+  
+
   
   .nav-item {
     display: flex;

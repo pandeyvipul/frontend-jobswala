@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Companypayments.css"; // Import the CSS for styling
 import Popup from "./Popup";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const Companypayments = () => {
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [selectslotid, setselectslotid] = useState("");
@@ -15,6 +17,7 @@ const Companypayments = () => {
   };
 
   const funFetch = async () => {
+    setLoading(true);
     try {
       let temp1 = localStorage.getItem("authToken");
       console.log(`Auth Token: ${temp1}`);
@@ -35,6 +38,8 @@ const Companypayments = () => {
       setData(data.data);
     } catch (error) {
       console.error("Error fetching payments:", error);
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -43,6 +48,7 @@ const Companypayments = () => {
   }, []);
 
   return (
+    <> {loading ? ( <div className="loader-container"><PulseLoader color="white" /></div>):(
     <div className="payments-container">
       {data.length === 0 ? (
         <p>No payments found for your company.</p>
@@ -84,6 +90,7 @@ const Companypayments = () => {
       )}
 
     </div>
+  )}</>
   );
 };
 

@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './CustomerService.css'; // Import the CSS file
+import PulseLoader from 'react-spinners/PulseLoader';
 
 const CustomerService = () => {
   const [complains, setComplains] = useState([]);
   const [input, setInput] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const fetchComplains = async () => {
+    setLoading(true);
+    try{
     const response = await fetch('https://backend-jobswala.onrender.com/complain/getcomplain', {
       method: 'GET',
       headers: {
@@ -16,11 +20,18 @@ const CustomerService = () => {
     const data = await response.json();
     console.log(data);
     setComplains(data);
+  }
+  catch(error){
+    console.log(error);
+  }finally{
+    setLoading(false);
+  }
   };
 
   const handleDone = async (complainId , input) => {
-    console.log(complainId, input);
-
+    // console.log(complainId, input);
+    setLoading(true);
+    try{
     const response = await fetch("https://backend-jobswala.onrender.com/complain/updatestatus", {
       method: "POST",
       headers: {
@@ -36,12 +47,19 @@ const CustomerService = () => {
       console.error("Failed to mark complain as done");
     }
   }
+  catch(error){
+    console.log(error); 
+  }finally{
+    setLoading(false);
+  }
+  }
 
   useEffect(() => {
     fetchComplains();
   }, []);
 
-  return (
+  return (<>
+    {loading ? (<div className="loader-container"><PulseLoader color="white" /></div>) :(
     <div className="customer-service">
       <h1 className="customer-service-title">Customer Service</h1>
       {complains.map((complain) => (
@@ -61,7 +79,7 @@ const CustomerService = () => {
           <button className="complain-done-btn" onClick={() => handleDone(complain._id, input)}>Done</button>
         </div>
       ))}
-    </div>
+    </div>)}</>
   );
 };
 

@@ -1,11 +1,12 @@
 import React, { useState, useEffect ,useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import PulseLoader from "react-spinners/PulseLoader";
 import "./StudentForm.css"; // For external CSS file
 import AlertPopup from "../AlertPopup";
 
-export const StudentForm = () => {
+const StudentForm = () => {
   const fileInputRef = useRef(null); // Add a ref for the file input
-
+const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [alertOn, setAlertOn] = useState(false);
   const [file, setFile] = useState(null);
@@ -104,6 +105,7 @@ export const StudentForm = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     const validationErrors = validateError();
   
     if (Object.keys(validationErrors).length === 0) {
@@ -130,7 +132,7 @@ export const StudentForm = () => {
         if (file) {
           yedata.append("resume", file);
         }
-  
+        setLoading(true);
         try {
           const response = await fetch("https://backend-jobswala.onrender.com/student/create", {
             method: "POST",
@@ -172,6 +174,8 @@ export const StudentForm = () => {
           console.log(error);
           setAlertMessage("Registration failed!");
           setAlertOn(true);
+        }finally{
+          setLoading(false);
         }
       }
     } else {
@@ -192,6 +196,7 @@ export const StudentForm = () => {
   }
 
   return (
+    <>{loading ?( <div className="loader-container"><PulseLoader color="white" /></div>):(
     <form className="student-form" onSubmit={handleSubmit}>
       <h2>Student Registration Form</h2>
 
@@ -290,7 +295,10 @@ export const StudentForm = () => {
       <button onClick={() => navigate("/login/students")}>Login</button>
       {alertOn && <AlertPopup message={alertMessage} onClose={() => setAlertOn(false)} />}
     </form>
+    )}
+    </>
   );
 };
 
 
+export default StudentForm

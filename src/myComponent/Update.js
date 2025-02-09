@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import AlertPopup from './AlertPopup'; 
 import "./Update.css"; // Importing CSS file
+import PulseLoader from 'react-spinners/PulseLoader';
 
 const Update = () => {
+  const [loading, setLoading] = useState(false);
   const [input, setInput] = useState(""); // slotid
   const [input2, setInput2] = useState(""); // text value
   const [type, setType] = useState(""); // type
@@ -40,6 +42,8 @@ const Update = () => {
       const formData = new FormData();
       formData.append("docs", file);
       formData.append("id", input);
+      setLoading(true);
+      try{
       const response = await fetch(`https://backend-jobswala.onrender.com/${type}/update/file`, {
         method: "POST",
         body: formData,
@@ -51,8 +55,11 @@ const Update = () => {
         setType(" ");
         setALertmessage("File updated successfully");
         setalert(true);
-        
-
+      
+      }}catch (error) {
+        console.log(error);
+      }finally{
+        setLoading(false);
       }
     } else {
       if (!input2) {
@@ -60,6 +67,8 @@ const Update = () => {
         setalert(true);
         return;
       }
+      setLoading(true);
+      try{
       const response = await fetch(`https://backend-jobswala.onrender.com/${type}/update/others`, {
         method: "POST",
         headers: {
@@ -75,6 +84,11 @@ const Update = () => {
        setalert(true); 
 
       }
+    }catch (error) {
+      console.log(error);
+    }
+    finally{
+      setLoading(false);}
     }
   };
 
@@ -85,6 +99,8 @@ const Update = () => {
       setalert(true);
       return;
     }
+    setLoading(true);
+    try{
     const response = await fetch(`https://backend-jobswala.onrender.com/${type}/show`, {
       method: "POST",
       headers: {
@@ -94,7 +110,12 @@ const Update = () => {
     });
     const data = await response.json();
     setData(data.data);
-    setDatacondition(true);
+    setDatacondition(true);}
+    catch (error) {
+      console.log(error);
+    }finally{
+      setLoading(false);
+    }
   };
 
   const resetForm = () => {
@@ -106,6 +127,7 @@ const Update = () => {
   };
 
   return (
+    <>{loading ? (<div className="loader-container"><PulseLoader color="white" /></div>) : (
     <div className="update-container">
       <div className="search-section">
         <input
@@ -159,6 +181,7 @@ const Update = () => {
       </div>
       {alert && <AlertPopup message={alertmessage} onClose={() => {setalert(false); window.location.reload();}} />}
       </div>
+      )}</>
   );
 };
 

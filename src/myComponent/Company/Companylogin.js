@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PulseLoader from "react-spinners/PulseLoader";
 import "./Companylogin.css"; // For external CSS file
 import AlertPopup from "../AlertPopup";
 
-export const Companylogin = () => {
+const Companylogin = () => {
   const [alert, setAlert] = useState(false);
   const[alertMessage, setAlertMessage] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -21,6 +22,7 @@ export const Companylogin = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     console.log("Login Data:", formData);
+    setLoading(true);
     try {
       const response = await fetch("https://backend-jobswala.onrender.com/company/login", {
         method: "POST",
@@ -46,10 +48,14 @@ export const Companylogin = () => {
 
     } catch (error) {
       console.log(error);
+    }finally{
+      setLoading(false);
     }
   };
 
   return (
+    <>
+    {loading ? (<div className="loader-container"><PulseLoader color="#36d7b7" /></div>) :(
     <form className="login-form" onSubmit={handleSubmit}>
       <h2 className="login-form-title">Login</h2>
 
@@ -85,8 +91,12 @@ export const Companylogin = () => {
       </button>
 
       {alert && <AlertPopup message={alertMessage} onClose={() => setAlert(false)} />}
-    </form>
+    </form>)
+}
+    </>
   );
 };
 
 
+
+export default Companylogin;

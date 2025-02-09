@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./Deactivation.css"; // Add a separate CSS file for styling
 import CompanyPopup from '../Student/CompanyPopup';
 import StudentPopup from "../Company/StudentPopup";
+import PulseLoader from "react-spinners/PulseLoader";
 
 
 const Deactivation = () => {
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [popup, setPopup] = useState({ isOpen: false, slotId: null });
   const [stupopup, setStupopup] = useState({ isOpen: false, slotId: null });
@@ -25,6 +27,7 @@ const Deactivation = () => {
     setStupopup({ isOpen: false, slotId: null });
   };
   const fetchData = async () => {
+    setLoading(true);
     try {
       const response = await fetch("https://backend-jobswala.onrender.com/deactivation/show", {
         method: "GET",
@@ -37,6 +40,8 @@ const Deactivation = () => {
       setData(result.data || []);
     } catch (error) {
       console.error("Error fetching data:", error);
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -45,7 +50,7 @@ const Deactivation = () => {
   }, []);
 
   const Deactivation = async (item) => {
-
+    setLoading(true);
     try {
       const response = await fetch("https://backend-jobswala.onrender.com/deactivation/delete", {
         method: "POST",
@@ -62,10 +67,13 @@ const Deactivation = () => {
       }
     } catch (error) {
       console.log(error);
+    }finally{
+      setLoading(false);
     }
 
   }
   return (
+    <>{loading ? (<div className="loader-container"><PulseLoader color="white" /></div>) : (
     <div className="deactivation-container">
       <h1 className="heading">Deactivation Details</h1>
       {data.length > 0 ? (
@@ -141,6 +149,7 @@ const Deactivation = () => {
         <p>No data available.</p>
       )}
     </div>
+    )}</>
   );
 };
 

@@ -2,16 +2,18 @@
 import React, { useEffect, useState , useRef} from 'react'
 import "./Companyslotdetails.css"
 import StudentPopup from './StudentPopup'
+import PulseLoader from "react-spinners/PulseLoader";
 
 const Companyslotdetails = () => {
   const [slot, setslot] = useState([])
   const [popup, setPopup] = useState(false);
   const [slotid, setslotid] = useState("");
   const [showmore, setShowmore] = useState(true);
-
+const [loading, setLoading] = useState(false);
   const page = useRef(1);
 
   const slotDelete = async (id) => {
+  setLoading(true);
     try {
       const response = await fetch(`https://backend-jobswala.onrender.com/slot/delete`, {
         method: "DELETE",
@@ -27,9 +29,12 @@ const Companyslotdetails = () => {
       }
     } catch (error) {
       console.log(error);
+    }finally{
+      setLoading(false);
     }
   }
   const fetchFunction = async () => {
+    setLoading(true);
     try {
       let temp = localStorage.getItem("authToken");
       const response = await fetch("https://backend-jobswala.onrender.com/slot/slotdetails", {
@@ -42,6 +47,8 @@ const Companyslotdetails = () => {
       setslot((prevSlot) => [...prevSlot, ...data.data]);
     } catch (error) {
       console.log(error);
+    }finally{
+      setLoading(false);
     }
   }
 
@@ -49,6 +56,7 @@ const Companyslotdetails = () => {
     fetchFunction();
   }, [])
   return (
+    <>{loading ? (<div className="loader-container"><PulseLoader color="white" /></div>):(
     <div className="slot-container">
       <h1>Company Slot Details</h1>
       {slot.map((item, index) => (
@@ -96,7 +104,7 @@ const Companyslotdetails = () => {
       </div>
       }
     </div>
-
+)}</>
   )
 }
 

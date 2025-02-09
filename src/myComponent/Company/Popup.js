@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import "./Popup.css";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const Popup = ({ slotid, onClose }) => {
     console.log("Received slotid in Popup:", slotid);
     const [data, setData] = useState({ transid: "" });
+    const [loading, setLoading] = useState(false);
 
     const handleInputChange = (e) => {
         setData({ ...data, transid: e.target.value });
     };
 
     const handleTransaction = async () => {
+        setLoading(true);
         try {
             const response = await fetch("https://backend-jobswala.onrender.com/slotpayment/transanction", {
                 method: "POST",
@@ -23,6 +26,8 @@ const Popup = ({ slotid, onClose }) => {
             console.log(data.success);
         } catch (error) {
             console.log(error);
+        }finally{
+            setLoading(false);
         }
     }
     const handleSubmit = async () => {
@@ -32,6 +37,7 @@ const Popup = ({ slotid, onClose }) => {
         onClose();
     };
     return (
+        <>{loading ? <div className="loader-container"><PulseLoader color="#000000" /></div> : (
         <div className="popup-container">
             <div className="popup-overlay">
                 <div className="popup">
@@ -52,6 +58,7 @@ const Popup = ({ slotid, onClose }) => {
             </div>
 
         </div>
+        )}</>
     );
 };
 

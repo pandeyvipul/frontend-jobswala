@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './StudentPopup.css';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 const StudentPopup = ({ slotid, onClose }) => {
+    const [loading, setLoading] = useState(false);
     const [student, setStudent] = useState({});
 
     const fetchStudent = async () => {
+        setLoading(true);
         try {
 
     const response = await fetch("https://backend-jobswala.onrender.com/student/findstudent", {
@@ -19,6 +22,8 @@ const StudentPopup = ({ slotid, onClose }) => {
             setStudent(data.data);
         } catch (error) {
             console.log(error);
+        }finally{
+            setLoading(false);
         }
     };
 
@@ -27,6 +32,7 @@ const StudentPopup = ({ slotid, onClose }) => {
     }, []);
 
     return (
+        <>{loading ? (<div className="loader-container"><PulseLoader color="white" /></div>):(
         <div className="student-popup-container">
             <div className="student-popup">
                 <button className="close-popup-btn" onClick={onClose}>
@@ -80,6 +86,7 @@ const StudentPopup = ({ slotid, onClose }) => {
                 <a href={student.resume}>Download CV</a>
             </div>
         </div>
+        )}</>
     );
 };
 

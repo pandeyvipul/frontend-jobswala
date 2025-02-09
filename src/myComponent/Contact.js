@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
 import "./Student/Studentcomplain.css"
+import PulseLoader from 'react-spinners/PulseLoader';
 import AlertPopup from './AlertPopup';
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -38,6 +40,7 @@ const Contact = () => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
+      setLoading(true);
       try {
         console.log("Form Data:", formData);
         const response = await fetch('https://backend-jobswala.onrender.com/complain/complaincreate', {
@@ -62,12 +65,16 @@ const Contact = () => {
       catch (error) {
         console.log(error)
       }
+      finally {
+        setLoading(false);
+      }
     } else {
       setErrors(validationErrors);
     }
   };
 
   return (
+    <>{loading ? (<div className="loader-container"><PulseLoader color="white" /></div>) : (
     <div className="contact-us-form">
       <h2>Contact Us</h2>
       {submitted && <p>Thank you for contacting us! We will get back to you soon.</p>}
@@ -128,6 +135,7 @@ const Contact = () => {
       </form>
       {alert && AlertPopup({ message: alertMessage, onClose: () => setAlert(false) })}
     </div>
+    )}</>
   );
 
 }

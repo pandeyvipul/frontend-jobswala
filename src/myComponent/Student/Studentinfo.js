@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import AlertPopup from "../AlertPopup";
 import "./Studentinfo.css"
+import PulseLoader from 'react-spinners/PulseLoader';
 
 const Studentinfo = () => {
+  const [loading, setLoading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [student, setStudent] = useState({});
 
   const fetchStudent = async () => {
+    setLoading(true);
     try {
       const response = await fetch("https://backend-jobswala.onrender.com/student/profile",
         {
@@ -23,6 +26,8 @@ const Studentinfo = () => {
       setStudent(data.data);
     } catch (error) {
       console.log(error);
+    }finally{
+      setLoading(false);
     }
   }
   useEffect(() => {
@@ -30,6 +35,7 @@ const Studentinfo = () => {
   }, []);
 
   const Deletion = async (student) => {
+    setLoading(true);
     try {
       const response = await fetch("https://backend-jobswala.onrender.com/deactivation/deletestudent", {
         method: "POST",
@@ -46,10 +52,15 @@ const Studentinfo = () => {
       }
     } catch (error) {
       console.log(error);
+    }finally{
+      setLoading(false);
     }
   }
 
   return (
+    <>{loading ? (<div className="loader-container"><PulseLoader color="white" /></div>) : (
+      
+
     <div className="student-profile">
   {/* Profile Section */}
   <div className="profile-header">
@@ -121,7 +132,7 @@ const Studentinfo = () => {
   </button>
   {showPopup && <AlertPopup message={alertMessage} onClose={() => setShowPopup(false)} />}
 </div>
-
+    )}</>
   );
 
 }

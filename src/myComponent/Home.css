@@ -90,7 +90,7 @@
     gap: 20px;
   }
   
-  .card {
+  .card1 {
     background-color: #333;
     padding: 20px;
     width: 30%;
@@ -98,18 +98,18 @@
     text-align: center;
   }
   
-  .card img {
+  .card1 img {
     max-width: 100px;
     height: auto;
     margin-bottom: 20px;
   }
   
-  .card h3 {
+  .card1 h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
   }
   
-  .card p {
+  .card1 p {
     font-size: 1rem;
   }
   
@@ -157,7 +157,7 @@
       align-items: center;
     }
   
-    .card {
+    .card1 {
       width: 80%;
       margin-bottom: 20px;
     }
@@ -189,7 +189,7 @@
     gap: 0; /* Remove the gap between cards */
   }
   
-  .company-card {
+  .company-card1 {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
@@ -202,17 +202,17 @@
     width: 200px; /* Fixed width for consistent layout */
   }
   
-  .company-card:hover {
+  .company-card1:hover {
     transform: translateY(-5px);
   }
   
-  .company-card img {
+  .company-card1 img {
     width: 150px;
     height: auto;
     margin-bottom: 15px;
   }
   
-  .company-card p {
+  .company-card1 p {
     font-size: 1rem;
     font-weight: bold;
     color: #555;
@@ -223,12 +223,12 @@
       justify-content: space-between; /* Makes cards align properly on small screens */
     }
   
-    .company-card {
+    .company-card1 {
       padding: 15px;
       width: 150px; /* Adjusts the card width for smaller screens */
     }
   
-    .company-card img {
+    .company-card1 img {
       width: 120px;
     }
   }
@@ -239,12 +239,12 @@
       justify-content: space-between; /* Makes cards align properly on small tablets */
     }
   
-    .company-card {
+    .company-card1 {
       width: 180px; /* Slightly adjust card width for tablets */
       padding: 18px;
     }
   
-    .company-card img {
+    .company-card1 img {
       width: 130px; /* Adjust image size */
     }
   }
@@ -255,16 +255,16 @@
       justify-content: space-between;
     }
   
-    .company-card {
+    .company-card1 {
       padding: 15px;
       width: 150px; /* Adjusts the card width for smaller screens */
     }
   
-    .company-card img {
+    .company-card1 img {
       width: 120px;
     }
   
-    .company-card p {
+    .company-card1 p {
       font-size: 0.9rem; /* Slightly reduce text size */
     }
   }
@@ -276,16 +276,16 @@
       align-items: center;
     }
   
-    .company-card {
+    .company-card1 {
       width: 90%; /* Make cards take up more space on small screens */
       margin: 10px 0;
     }
   
-    .company-card img {
+    .company-card1 img {
       width: 100px; /* Reduce image size for very small screens */
     }
   
-    .company-card p {
+    .company-card1 p {
       font-size: 0.85rem; /* Further reduce text size */
     }
   }

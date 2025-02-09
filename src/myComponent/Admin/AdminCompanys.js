@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './AdminStudents.css';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 const AdminCompanys = () => {
   const [students, setStudents] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchCompanys = async () => {
+    setLoading(true);
     try {
       const response = await fetch('https://backend-jobswala.onrender.com/company/showdetails', {
         method: 'POST',
@@ -17,6 +20,8 @@ const AdminCompanys = () => {
       setStudents(data.data);
     } catch (error) {
       console.error('Error fetching companys:', error);
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -25,7 +30,7 @@ const AdminCompanys = () => {
   }, []);
 
   const Approve = async(student) => {
-    
+      setLoading(true);
       try {
         const response = await fetch("https://backend-jobswala.onrender.com/Company/verify", {
           method: 'POST',
@@ -41,11 +46,14 @@ const AdminCompanys = () => {
         }
       } catch (error) {
         console.error('Error approving student:', error);
+      }finally{
+        setLoading(false);
       }
   };
 
 
   return (
+    <>{loading ? (<div className='loader-container'><PulseLoader color="white" /></div>):( 
     <div className="admin-students">
       {students.length === 0 ? (
         <p className="no-students">No Companys found</p>
@@ -73,6 +81,7 @@ const AdminCompanys = () => {
         ))
       )}
     </div>
+    ) }</>
   );
 };
 

@@ -1,11 +1,12 @@
 import React, { useState, useEffect ,useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import AlertPopup from "../AlertPopup";
+import PulseLoader from "react-spinners/PulseLoader";
 import "./CompanyForm.css";
 
-export const CompanyForm = () => {
+const CompanyForm = () => {
   const fileInputRef = useRef(null); // Add a ref for the file input
-  
+  const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
   const [alert, setAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
@@ -56,7 +57,7 @@ export const CompanyForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     if (!localStorage.getItem("order")) {
       setAlertMessage("Please make payment first");
       setAlert(true);
@@ -124,6 +125,8 @@ export const CompanyForm = () => {
       }
       catch (error) {
         console.error("Error:", error);
+      }finally {
+        setLoading(false);
       }
     }
   };
@@ -141,6 +144,11 @@ export const CompanyForm = () => {
   };
 
   return (
+    <>{loading ? (
+      <div className="loader-container">
+        <PulseLoader color="white" />
+      </div>
+    ):(
     <form className="company-form" onSubmit={handleSubmit}>
       <h2>Company Registration Form</h2>
 
@@ -232,6 +240,8 @@ export const CompanyForm = () => {
       <button onClick={() => navigate("/login/companys")}>Login</button>
 
       {alert && <AlertPopup message={alertMessage} onClose={() => setAlert(false)} />}
-    </form>
+    </form>)}
+    </>
   );
 };
+export default CompanyForm;

@@ -1,0 +1,124 @@
+/* General Navbar Styling */
+.nav-bar {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Container for Navbar Items */
+.nav-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* Logo Styling */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo svg {
+  width: 50px;
+  height: 50px;
+}
+
+.logo-name {
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* Navigation Menu */
+.gap {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Spacing between menu items */
+}
+
+.gap ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.gap ul li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 8px 12px;
+  transition: 0.3s ease;
+}
+
+.nav-item:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger-menu {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Show hamburger icon and hide full menu on smaller screens */
+@media screen and (max-width: 768px) {
+  .hamburger-menu {
+    display: block;
+  }
+
+  .gap {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #333;
+    padding: 10px;
+  }
+
+  .gap.active {
+    display: flex;
+  }
+
+  .gap ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .gap ul li {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .nav-item {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .logo svg {
+    width: 35px;  /* Reduce size on mobile */
+    height: 35px;
+  }
+}

@@ -1,10 +1,16 @@
 import React from 'react'
+import { useState } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
 import "./Payment.css"
+import PulseLoader from 'react-spinners/PulseLoader'
+
 const Payment = () => {
+  const [loading, setLoading] = useState(false);
   const makepayment = async () => {
+    setLoading(true);
     const stripe = await loadStripe("pk_test_51QSto4Gl0axXamlKfYssZ6abZyMsBjCiJdxUpVCFVhdqmHhGgA8ECT18MqlYQySazyjQoN4Ogbo2dDYYRiAx28M700xPDO8vrL");
-    const res = await fetch("https://backend-jobswala.onrender.com/payment/companys", {
+    try{
+      const res = await fetch("https://backend-jobswala.onrender.com/payment/companys", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -15,12 +21,19 @@ const Payment = () => {
     console.log(id);
     const stripen = await stripe;
     await stripen.redirectToCheckout({ sessionId: id });
+  }catch(error){
+    console.log(error);
+  }finally{
+    setLoading(false);
+  }
   }
 
 
   const makestudents = async () => {
+    setLoading(true);
     const stripe = await loadStripe("pk_test_51QSto4Gl0axXamlKfYssZ6abZyMsBjCiJdxUpVCFVhdqmHhGgA8ECT18MqlYQySazyjQoN4Ogbo2dDYYRiAx28M700xPDO8vrL");
-    const res = await fetch("https://backend-jobswala.onrender.com/payment/students", {
+    try{
+      const res = await fetch("https://backend-jobswala.onrender.com/payment/students", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,10 +50,15 @@ const Payment = () => {
 
     const stripen = await stripe;
     await stripen.redirectToCheckout({ sessionId: id });
+  }catch(error){
+    console.log(error);
+  }finally{
+    setLoading(false);
+  }
   }
 
   return (
-
+    <>{loading ? (<div className="loader-container"><PulseLoader color="white" /></div>):(
     <div className="payment-section">
       <h1>Payment</h1>
       <p>Please select the type of payment:</p>
@@ -53,7 +71,7 @@ const Payment = () => {
         For Students Payment
       </button>
     </div>
-
+)}</>
   )
 }
 

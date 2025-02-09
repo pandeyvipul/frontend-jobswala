@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import AlertPopup from '../AlertPopup';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 
 const Companyothers = () => {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     website: '',
     description: '',
@@ -20,6 +22,7 @@ const Companyothers = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    
     if (!(formData.website.includes('.com') || formData.website.includes('.in') || formData.website.includes('.vercel.app'))) {
       setAlertMessage('The website URL must include ".com", ".in", or ".vercel.app". Please enter a valid website.');
       setAlert(true);
@@ -33,6 +36,9 @@ const Companyothers = () => {
       token: localStorage.getItem('authToken')
     }
     console.log('Form Submitted:', formData);
+
+    setLoading(true);
+    try{
     const response = await fetch('https://backend-jobswala.onrender.com/company/updatecompany', {
       method: 'POST',
       headers: {
@@ -55,9 +61,16 @@ const Companyothers = () => {
         address: ''
       })
     }
+  }catch(error){
+    console.log(error);
+  } finally{
+    setLoading(false);
+  }
   };
 
   const handleData = async() => {
+    setLoading(true);
+    try{
     const response = await fetch('https://backend-jobswala.onrender.com/company/finddetails', {
       method: 'POST',
       headers: {
@@ -68,10 +81,16 @@ const Companyothers = () => {
     const data = await response.json();
     setAlertMessage(JSON.stringify(data.data));
     setAlert(true);
+  }catch(error){
+    console.log(error);
+  }finally{
+    setLoading(false);
+  }
   }
       
 
   return (
+    <>{loading ? (<div className='loader-container'><PulseLoader color="white" /></div>) :(
     <div style={{ padding: '20px', maxWidth: '400px', margin: '20px auto' ,backgroundColor: '#f5f5f5'}}>
       <h2>Update Company Details</h2><br/>
       <p>This is the additional information which is displayed to the student</p><br/>
@@ -149,7 +168,7 @@ const Companyothers = () => {
         </button>
         {alert && <AlertPopup message={alertMessage} onClose={() => setAlert(false)} />}
       </form>
-    </div>
+    </div>)}</>
   );
 };
 

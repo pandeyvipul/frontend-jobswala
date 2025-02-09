@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import AlertPopup from "../AlertPopup";
+import PulseLoader from "react-spinners/PulseLoader";
 import "./CompanyInfo.css"; // Import the CSS file
 
 const CompanyInfo = () => {
+  const [loading, setLoading] = useState(false);
   const [company, setCompany] = useState({});
   const [alert, setAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
 
   const fetchCompanyInfo = async () => {
-    const response = await fetch("https://backend-jobswala.onrender.com/company/profile", {
+    setLoading(true);
+    try{
+      const response = await fetch("https://backend-jobswala.onrender.com/company/profile", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,6 +22,11 @@ const CompanyInfo = () => {
 
     const data = await response.json();
     setCompany(data.data);
+  }catch(error){
+    console.error("Error fetching company info:", error);
+  }finally{
+    setLoading(false);
+  }
   };
 
   useEffect(() => {
@@ -25,6 +34,8 @@ const CompanyInfo = () => {
   }, []);
 
   const Deletion = (company) => async () => {
+    setLoading(true);
+    try{
     const response = await fetch("https://backend-jobswala.onrender.com/deactivation/deletecompany", {
       method: "POST",
       headers: {
@@ -40,8 +51,19 @@ const CompanyInfo = () => {
     }else{
       console.error("Error deleting company:", data.error);
     }
+  }catch(error){
+    console.error("Error deleting company:", error);
+  }finally{
+    setLoading(false);
+  }
   }
   return (
+    <>
+    {loading ? (
+      <div className="loader-container">
+        <PulseLoader color="white" />
+      </div>
+    ):(
     <div className="company-container">
       <div className="card">
         <h1 className="company-header">Company Information</h1>
@@ -69,6 +91,7 @@ const CompanyInfo = () => {
       </div>
       {alert && <AlertPopup message={alertMessage} onClose={() => setAlert(false)} />}
     </div>
+    )}</>
   );
 };
 

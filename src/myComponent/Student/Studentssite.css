@@ -1,0 +1,103 @@
+
+.login {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping for responsiveness */
+    gap: 2vh; /* Space between boxes */
+    padding: 2vh;
+    width: 100%; /* Ensure container spans full width */
+    height: 100%; /* Full viewport height */
+}
+.options {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping for responsiveness */
+    gap: 2vh; /* Space between boxes */
+    padding: 2vh;
+    width: 100%; /* Ensure container spans full width */
+    height: max-content; /* Full viewport height */
+}
+
+/* Link button styling */
+.button {
+    display: flex;
+    flex-direction: column; /* Stack SVG and text */
+    align-items: center;
+    justify-content: center; /* Center content */
+    background-color: #ffffff; /* Background color */
+    border: 1px solid #ddd; /* Border styling */
+    border-radius: 2vh; /* Rounded corners */
+    width: 20vw; /* Button width for desktop */
+    height: 20vw; /* Button height for desktop */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-size: 2vh; /* Font size for text */
+    font-family: Arial, sans-serif; /* Font family */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Styling links inside the button */
+.button a {
+    text-decoration: none; /* Remove underline */
+    color: #f6f4f4; /* Text color */
+}
+
+/* Hover effects */
+.button:hover {
+    background-color: #e0e0e0; /* Lighter background on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Add SVG styling */
+.button svg {
+    width: 10vw; /* SVG size proportional to button */
+    height: 10vw; /* SVG height */
+    margin-bottom: 1vh; /* Space between SVG and text */
+    fill: #333; /* SVG color */
+}
+
+/* Responsive design for desktops */
+@media (min-width: 786px) {
+    .login {
+        padding: 5vh;
+        width: 100%; 
+        height: 100%;/* Center and take up 75% of the screen */
+        margin: auto; /* Center horizontally */
+        justify-content: space-around; /* Spread buttons evenly */
+    }
+    .button {
+        
+        width: 25vw; /* Larger buttons on desktop */
+        height: 25vw;
+    }
+    .button svg {
+        width: 15vw; /* Scale SVG accordingly */
+        height: 15vw;
+    }
+}
+
+/* Responsive design for smaller screens (e.g., tablets, mobile) */
+@media (max-width: 480px) {
+    .login {
+        flex-direction: column; /* Stack boxes vertically */
+        width: 100%; /* Full width for mobile */
+    }
+    .button {
+        width: 60vw; /* Smaller buttons for mobile */
+        height: 60vw;
+    }
+    .button svg {
+        width: 30vw; /* Scale SVG for mobile */
+        height: 30vw;
+    }
+}
+
+.text {
+    color: black;
+    border: none;
+    outline: none;
+    text-align: center;
+}

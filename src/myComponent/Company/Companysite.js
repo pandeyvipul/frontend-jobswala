@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import "./Companysite.css"
 
 const Companysite = () => {
   return (
@@ -27,3 +28,4 @@ const Companysite = () => {
 }
 
 export default Companysite
+

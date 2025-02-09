@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './CompanyPopup.css';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 const CompanyPopup = ({ slotid, onClose }) => {
     const [company, setCompany] = useState({});
-
+    const [loading, setLoading] = useState(false);
     const fetchCompanyInfo = async () => {
+        setLoading(true);
         try {
             const response = await fetch("https://backend-jobswala.onrender.com/company/findcompany", {
                 method: "POST",
@@ -18,6 +20,8 @@ const CompanyPopup = ({ slotid, onClose }) => {
             setCompany(data.data);
         } catch (error) {
             console.error("Error fetching company data:", error);
+        }finally{
+            setLoading(false);
         }
     };
 
@@ -26,6 +30,7 @@ const CompanyPopup = ({ slotid, onClose }) => {
     }, []);
 
     return (
+        <>{loading ? (<div className="loader-container"><PulseLoader color="white" /></div>) : (
         <div className="company-popup-container">
             <div className="company-popup">
                 <button className="company-close-popup-btn" onClick={onClose}>
@@ -53,6 +58,7 @@ const CompanyPopup = ({ slotid, onClose }) => {
                 </div>
             </div>
         </div>
+        )}</>
     );
 };
 

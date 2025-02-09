@@ -34,17 +34,17 @@ const Home = () => {
       <section id="features" className="features-section">
         <h2>Why Choose JobWala?</h2>
         <div className="features-cards">
-          <div className="card" style={{color: 'black'}}>
+          <div className="card1" style={{color: 'white'}}>
             <img src="https://picsum.photos/200/200" alt="Smart Matching" />
             <h3>Smart Matching</h3>
             <p>We match job seekers with the best-suited opportunities using advanced algorithms.</p>
           </div>
-          <div className="card" style={{color: 'black'}}>
+          <div className="card1" style={{color: 'white'}}>
             <img src="https://picsum.photos/200/200" alt="Personalized Recommendations" />
             <h3>Personalized Recommendations</h3>
             <p>Get job suggestions tailored to your skills, experience, and preferences.</p>
           </div>
-          <div className="card" style={{color: 'black'}}>
+          <div className="card1" style={{color: 'white'}}>
             <img src="https://picsum.photos/200/200" alt="Streamlined Recruitment" />
             <h3>Streamlined Recruitment</h3>
             <p>Employers can post jobs and manage applications effortlessly.</p>

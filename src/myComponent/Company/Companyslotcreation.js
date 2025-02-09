@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import AlertPopup from "../AlertPopup";
 import "./Companyslotcreation.css"; // Scoped to SlotForm component only.
+import PulseLoader from "react-spinners/PulseLoader";
 
 const Companyslotcreation = () => {
+  const [loading, setLoading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const [formData, setFormData] = useState({
@@ -39,7 +41,7 @@ const Companyslotcreation = () => {
       students: formData.students ? JSON.parse(formData.students) : null,
     };
     console.log("Submitted Data:", formattedData);
-
+    setLoading(true);
     try {
       console.log("Submitted Data:", formattedData);
       const response = await fetch("https://backend-jobswala.onrender.com/slot/create", {
@@ -69,11 +71,14 @@ const Companyslotcreation = () => {
       }
     } catch (error) {
       console.log(error);
+    }finally{
+      setLoading(false);
     }
 
   };
 
   return (
+    <>{loading ? (<div className="loader-container"><PulseLoader color="white" /></div>) : (
     <div className="slotForm-container">
       <h2 className="slotForm-title">Create Slot</h2>
       <form onSubmit={handleSubmit}>
@@ -170,7 +175,7 @@ const Companyslotcreation = () => {
         </button>
       </form>
       {showPopup && <AlertPopup message={popupMessage} onClose={() => setShowPopup(false)} />}
-    </div>
+    </div>)}</>
   );
 };
 

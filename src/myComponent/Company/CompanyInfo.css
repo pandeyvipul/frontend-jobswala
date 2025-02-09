@@ -18,7 +18,23 @@
     text-align: center;
     animation: fadeIn 1s ease-in-out;
   }
+  .delete-profile {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #f44336;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
   
+  .delete-profile:hover {
+    background-color: #d32f2f;
+  }
   .company-header {
     font-size: 2rem;
     font-weight: bold;
@@ -78,6 +94,9 @@
     .info-item {
       padding: 10px 15px;
     }
+  }
+  .delete-profile {
+    font-size: 14px;
   }
   
   @keyframes fadeIn {
